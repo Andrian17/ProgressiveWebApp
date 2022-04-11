@@ -29,6 +29,8 @@
     "no-empty-function": "off",
     "operator-linebreak": "off",
     "implicit-arrow-linebreak": "off",
-    "no-restricted-globals": "off"
+    "no-restricted-globals": "off",
+    "function-paren-newline": "off",
+    "eqeqeq": "off"
   }
 }

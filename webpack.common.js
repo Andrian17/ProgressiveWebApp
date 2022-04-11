@@ -34,16 +34,18 @@ module.exports = {
     new CopyWebPackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src/public'),
+          from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
     }),
     new WebpackPwaManifest({
       filename: 'manifest.json',
+      start_url: '/index.html',
       name: 'And - Progressive Web App',
       short_name: 'And-PWA',
       description: 'And - awesome Progressive Web App!',
+      display: 'standalone',
       inject: true,
       background_color: '#ffffff',
       theme_color: '#E018E1',
@@ -52,15 +54,17 @@ module.exports = {
         {
           src: path.resolve(__dirname, 'src/public/icons/icon-512x512.png'),
           sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+          purpose: 'any maskable',
         },
         {
           src: path.resolve(__dirname, 'src/public/icons/icon-512x512.png'),
           size: '1024x1024', // you can also use the specifications pattern
+          purpose: 'any maskable',
         },
         {
           src: path.resolve(__dirname, 'src/public/icons/icon-512x512.png'),
           size: '1024x1024',
-          purpose: 'maskable',
+          purpose: 'any maskable',
         },
       ],
     }),
