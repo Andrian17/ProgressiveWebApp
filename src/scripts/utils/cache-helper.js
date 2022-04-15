@@ -10,7 +10,8 @@ const CacheHelper = {
     const cacheNames = await caches.keys();
     cacheNames
       .filter((name) => name !== CONFIG.CACHE_NAME)
-      .forEach((filteredName) => caches.delete(filteredName));
+      .map((filteredName) => caches.delete(filteredName));
+    console.log(cacheNames);
   },
 
   async revalidateCache(request) {
@@ -28,7 +29,6 @@ const CacheHelper = {
 
   async _fetchRequest(request) {
     const response = await fetch(request);
-    console.log(response);
 
     if (!response || response.status !== 200) {
       return response;

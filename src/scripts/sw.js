@@ -5,7 +5,9 @@ const { assets } = global.serviceWorkerOption;
 console.log(assets);
 
 self.addEventListener('install', (event) => {
+  // self.skipWaiting();
   event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
+  console.log('install');
 });
 
 self.addEventListener('activate', (event) => {
@@ -13,5 +15,6 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  if (!(event.request.url.indexOf('https') === 0)) return;
   event.respondWith(CacheHelper.revalidateCache(event.request));
 });

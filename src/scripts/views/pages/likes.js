@@ -1,12 +1,11 @@
-import TheMovieDbSource from '../../data/themoviedb-source.js';
+import FavoriteMovieIdb from '../../data/favorite-movie-idb.js';
 import { createMovieItemTemplate } from '../templates/template-creator.js';
 
-const NowPlaying = {
+const Likes = {
   async render() {
     return `
       <div class="content">
-        <h2 class="content__heading">Now Playing in Cinema</h2>
-        <h2>Nama Saya OKOKOKo</h2>
+        <h2 class="content__heading">Liked in Cinema</h2>
         <div id="movies" class="movies">
 
         </div>
@@ -15,8 +14,8 @@ const NowPlaying = {
   },
 
   async afterRender() {
-    const movies = await TheMovieDbSource.nowPlayingMovies();
-    // console.log(movies);
+    const movies = await FavoriteMovieIdb.getAllMovies();
+    console.log(movies);
     const moviesContainer = document.querySelector('#movies');
     moviesContainer.innerHTML = '';
     movies.forEach((movie) => {
@@ -25,4 +24,4 @@ const NowPlaying = {
   },
 };
 
-export default NowPlaying;
+export default Likes;

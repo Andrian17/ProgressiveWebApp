@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "idb": "^7.0.1",
+    "nanoid": "^3.3.2",
     "regenerator-runtime": "^0.13.7",
     "serviceworker-webpack-plugin": "^1.0.1"
   },
